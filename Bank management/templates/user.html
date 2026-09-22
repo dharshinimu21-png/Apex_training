@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>User Dashboard</title>
+
+    <link rel="stylesheet"
+          href="/static/style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="user-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <h2>BANK</h2>
+
+        <p class="admin-text">
+            Welcome {{ user[1] }}
+        </p>
+
+
+        <!-- SIDEBAR MENU -->
+
+        <form method="get"
+              action="/user/{{ user[1] }}">
+
+
+            <label class="sidebar-radio">
+
+                <input
+                    type="radio"
+                    name="section"
+                    value="dashboard"
+
+                    {% if section == "dashboard" %}
+                        checked
+                    {% endif %}
+
+                    onchange="this.form.submit()"
+                >
+
+                <span>Dashboard</span>
+
+            </label>
+
+
+
+            <label class="sidebar-radio">
+
+                <input
+                    type="radio"
+                    name="section"
+                    value="deposit"
+
+                    {% if section == "deposit" %}
+                        checked
+                    {% endif %}
+
+                    onchange="this.form.submit()"
+                >
+
+                <span>Deposit</span>
+
+            </label>
+
+
+
+            <label class="sidebar-radio">
+
+                <input
+                    type="radio"
+                    name="section"
+                    value="withdraw"
+
+                    {% if section == "withdraw" %}
+                        checked
+                    {% endif %}
+
+                    onchange="this.form.submit()"
+                >
+
+                <span>Withdraw</span>
+
+            </label>
+
+
+
+            <label class="sidebar-radio">
+
+                <input
+                    type="radio"
+                    name="section"
+                    value="balance"
+
+                    {% if section == "balance" %}
+                        checked
+                    {% endif %}
+
+                    onchange="this.form.submit()"
+                >
+
+                <span>Check Balance</span>
+
+            </label>
+
+
+        </form>
+
+
+
+        <!-- LOGOUT -->
+
+        <a href="/logout"
+           class="logout">
+
+            Logout
+
+        </a>
+
+
+    </div>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content">
+
+
+        <h1>
+            BANK MANAGEMENT SYSTEM
+        </h1>
+
+
+
+        <!-- ========================= -->
+        <!-- DASHBOARD -->
+        <!-- ========================= -->
+
+        {% if section == "dashboard" %}
+
+        <div class="card">
+
+            <h2>
+                Welcome {{ user[1] }}
+            </h2>
+
+
+            <p>
+
+                Account Number:
+
+                <strong>
+                    {{ user[0] }}
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                Current Balance:
+
+                <strong>
+                    ₹ {{ "%.2f"|format(user[3]) }}
+                </strong>
+
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+
+        <!-- ========================= -->
+        <!-- DEPOSIT -->
+        <!-- ========================= -->
+
+        {% if section == "deposit" %}
+
+        <div class="card">
+
+            <h2>
+                Deposit Money
+            </h2>
+
+
+            <form action="/deposit"
+                  method="post">
+
+
+                <input
+                    type="hidden"
+                    name="account_no"
+                    value="{{ user[0] }}"
+                >
+
+
+                <input
+                    type="number"
+                    step="0.01"
+                    name="amount"
+                    placeholder="Enter Amount"
+                    min="1"
+                    required
+                >
+
+
+                <button type="submit">
+                    Deposit
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- DEPOSIT SUCCESS MESSAGE -->
+
+        {% if success %}
+
+        <div class="transaction-success">
+
+            <h3>
+                {{ success }}
+            </h3>
+
+
+            <p>
+
+                Deposited Amount:
+
+                <strong>
+                    ₹ {{ "%.2f"|format(amount|float) }}
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                Current Balance:
+
+                <strong>
+                    ₹ {{ "%.2f"|format(current_balance|float) }}
+                </strong>
+
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        {% endif %}
+
+
+
+        <!-- ========================= -->
+        <!-- WITHDRAW -->
+        <!-- ========================= -->
+
+        {% if section == "withdraw" %}
+
+        <div class="card">
+
+            <h2>
+                Withdraw Money
+            </h2>
+
+
+            <form action="/withdraw"
+                  method="post">
+
+
+                <input
+                    type="hidden"
+                    name="account_no"
+                    value="{{ user[0] }}"
+                >
+
+
+                <input
+                    type="number"
+                    step="0.01"
+                    name="amount"
+                    placeholder="Enter Amount"
+                    min="1"
+                    required
+                >
+
+
+                <button type="submit">
+                    Withdraw
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- WITHDRAW SUCCESS MESSAGE -->
+
+        {% if success %}
+
+        <div class="transaction-success">
+
+            <h3>
+                {{ success }}
+            </h3>
+
+
+            <p>
+
+                Withdrawn Amount:
+
+                <strong>
+                    ₹ {{ "%.2f"|format(amount|float) }}
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                Current Balance:
+
+                <strong>
+                    ₹ {{ "%.2f"|format(current_balance|float) }}
+                </strong>
+
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        {% endif %}
+
+
+
+        <!-- ========================= -->
+        <!-- CHECK BALANCE -->
+        <!-- ========================= -->
+
+        {% if section == "balance" %}
+
+        <div class="card">
+
+            <h2>
+                Account Balance
+            </h2>
+
+
+            <h1>
+
+                ₹ {{ "%.2f"|format(user[3]) }}
+
+            </h1>
+
+
+            <p>
+
+                Account Number:
+
+                <strong>
+                    {{ user[0] }}
+                </strong>
+
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

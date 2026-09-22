@@ -1,0 +1,431 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f8faf9;
+    color: #222;
+}
+
+
+/* =========================
+   HOME PAGE
+========================= */
+
+.home-container {
+    text-align: center;
+    padding-top: 160px;
+}
+
+.home-container h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.home-container p {
+    color: #666;
+    font-size: 16px;
+}
+
+.green-button {
+    display: inline-block;
+    background: #22c55e;
+    color: white;
+    text-decoration: none;
+    padding: 9px 18px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.green-button:hover {
+    background: #16a34a;
+}
+
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+.login-container {
+    width: 380px;
+    margin: 80px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.login-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.login-container h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.login-choice {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.login-choice label {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.login-choice input[type="radio"] {
+    accent-color: #22c55e;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 7px 0;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-container button {
+    width: 100%;
+    margin-top: 12px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    background: #22c55e;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+button:hover {
+    background: #16a34a;
+}
+
+.delete-btn {
+    background: #ef4444;
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
+
+
+/* =========================
+   ADMIN / USER LAYOUT
+========================= */
+
+.admin-layout,
+.user-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    width: 210px;
+    background: white;
+    padding: 25px 15px;
+    min-height: 100vh;
+    border-right: 1px solid #e5e7eb;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin: 0 0 8px 8px;
+}
+
+.admin-text {
+    color: #777;
+    font-size: 13px;
+    margin: 0 0 25px 8px;
+}
+
+
+/* =========================
+   SIDEBAR RADIO BUTTONS
+========================= */
+
+.sidebar-radio {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    width: 100%;
+    padding: 10px 8px;
+    margin: 5px 0;
+
+    border-radius: 5px;
+
+    color: #333;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.sidebar-radio:hover {
+    background: #f1f5f2;
+}
+
+.sidebar-radio input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+
+    accent-color: #22c55e;
+
+    cursor: pointer;
+}
+
+.sidebar-radio input[type="radio"]:checked + span {
+    color: #16a34a;
+    font-weight: bold;
+}
+
+
+/* =========================
+   SIDEBAR LINKS
+========================= */
+
+.sidebar a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+
+    padding: 10px 8px;
+    margin: 5px 0;
+
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.sidebar a:hover {
+    background: #f1f5f2;
+}
+
+
+/* LOGOUT */
+
+.sidebar .logout {
+    margin-top: 30px;
+    color: #ef4444;
+}
+
+.sidebar .logout:hover {
+    background: #fff1f1;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content {
+    flex: 1;
+    padding: 30px 40px;
+    background: #f8faf9;
+}
+
+.main-content > h1 {
+    font-size: 26px;
+    margin: 0 0 25px 0;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    background: white;
+
+    width: 100%;
+    max-width: 700px;
+
+    padding: 25px;
+
+    border-radius: 8px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* =========================
+   FORM INPUTS
+========================= */
+
+.card input {
+    width: 100%;
+
+    padding: 10px;
+    margin: 6px 0;
+
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    font-size: 14px;
+}
+
+.card input:focus,
+.login-container input:focus {
+    outline: none;
+    border-color: #22c55e;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th,
+td {
+    padding: 11px;
+    text-align: left;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    background: #f3f4f6;
+    color: #333;
+    font-weight: bold;
+}
+
+td {
+    color: #555;
+}
+
+tr:hover {
+    background: #f9fafb;
+}
+
+
+/* =========================
+   BALANCE PAGE
+========================= */
+
+.balance-box {
+    width: 400px;
+
+    margin: 120px auto;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.balance-box h1 {
+    font-size: 22px;
+}
+
+.balance-box h2 {
+    color: #16a34a;
+    font-size: 30px;
+}
+
+.balance-box a {
+    color: #16a34a;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+    color: #dc2626;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 180px;
+        padding: 20px 10px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .main-content > h1 {
+        font-size: 21px;
+    }
+
+    .login-container {
+        width: 90%;
+        margin: 50px auto;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .balance-box {
+        width: 90%;
+    }
+}
